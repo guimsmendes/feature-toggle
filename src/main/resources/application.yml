@@ -1,0 +1,18 @@
+spring:
+  port: 8080
+  application:
+    name: itau-desafio-feature-flag
+    version: 1.0.0
+  jackson:
+    time-zone: UTC # Todas as datas serão convertidas para UTC
+    default-property-inclusion: non_absent # NÃO manda no JSON propriedades igual a null
+  mvc:
+    throw-exception-if-no-handler-found: true # Lança uma exceção quando acontece um 404 (para poder ser interceptada e virar um erro de API padrão nosso)
+  resources:
+    add-mappings: false
+
+# Desabilita página de erro do Spring Boot para evitar vazamento de informações sobre a aplicação (recomendado)
+server:
+  error:
+    whitelabel:
+      enabled: false
