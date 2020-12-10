@@ -32,13 +32,6 @@ public class FeatureToggleRepositoryTest {
 
 		assertThat(createdFeatureToggle.getNome()).isEqualTo("nome-do-feature-value");
 	}
-	
-	@Test
-	public void saveNullTest() {
-		FeatureToggle createdFeatureToggle = featureToggleRepository.save(mockFeatureValue());
-
-		assertThat(createdFeatureToggle.getNome()).isEqualTo("nome-do-feature-value");
-	}
 
 	@Test
 	public void getByNameTest() {

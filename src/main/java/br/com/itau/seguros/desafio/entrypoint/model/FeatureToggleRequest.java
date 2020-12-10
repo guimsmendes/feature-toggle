@@ -6,12 +6,15 @@ import lombok.Value;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 import java.math.BigDecimal;
 
 @Value
 public class FeatureToggleRequest {
-    @NotEmpty(message = "Favor informar um nome válido.")
+	
+	@Pattern(regexp = "^[a-zA-Z0-9_-]+$", message = "Favor informar um nome válido.")
+    @NotEmpty(message = "Favor preencher o nome.")
     String nome;
 
     @NotEmpty(message = "Favor informar um tipo válido: Toggle ou Value.")
