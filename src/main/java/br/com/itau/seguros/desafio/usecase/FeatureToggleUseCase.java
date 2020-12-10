@@ -17,11 +17,6 @@ public class FeatureToggleUseCase {
 	private FeatureToggleGateway featureToggleGateway;
 
 	public FeatureToggle registrarFeatureToggle(FeatureToggle featureToggle) {
-		FeatureToggle validateFeatureToggle = featureToggleGateway.getByName(featureToggle.getNome());
-
-		if (validateFeatureToggle != null) {
-			return featureToggleGateway.update(featureToggle);
-		}
 		return featureToggleGateway.save(featureToggle);
 	}
 
