@@ -1,7 +1,7 @@
-package br.com.itau.seguros.desafio.api.model;
+package br.com.itau.seguros.desafio.entrypoint.model;
 
-import br.com.itau.seguros.desafio.model.FeatureToggle;
-import br.com.itau.seguros.desafio.model.TipoToggle;
+import br.com.itau.seguros.desafio.dataprovider.model.FeatureToggle;
+import br.com.itau.seguros.desafio.dataprovider.model.enums.TipoToggle;
 import lombok.Value;
 
 import javax.validation.constraints.NotEmpty;
@@ -9,19 +9,17 @@ import javax.validation.constraints.NotNull;
 
 import java.math.BigDecimal;
 
-import static java.util.Optional.ofNullable;
-
 @Value
 public class FeatureToggleRequest {
-    @NotEmpty
+    @NotEmpty(message = "Favor informar um nome válido.")
     String nome;
 
-    @NotEmpty
+    @NotEmpty(message = "Favor informar um tipo válido: Toggle ou Value.")
     String tipo;
 
     BigDecimal valor;
 
-    @NotNull
+    @NotNull(message = "Favor informar se o Feature Toggle está ou não ligado: True ou False.")
     Boolean ligado;
 
     /**

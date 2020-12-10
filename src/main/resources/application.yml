@@ -1,16 +1,27 @@
 spring:
+  datasource: # Configuração do Datasource H2
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: mendes
+    password: 123
   port: 8080
   application:
     name: itau-desafio-feature-flag
     version: 1.0.0
   jackson:
     time-zone: UTC # Todas as datas serão convertidas para UTC
-    default-property-inclusion: non_absent # NÃO manda no JSON propriedades igual a null
+    default-property-inclusion: non-absent # NÃO manda no JSON propriedades igual a null
   mvc:
     throw-exception-if-no-handler-found: true # Lança uma exceção quando acontece um 404 (para poder ser interceptada e virar um erro de API padrão nosso)
   resources:
     add-mappings: false
-
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+  h2: 
+    console:
+      enabled: true
+      path: /h2
+      
 # Desabilita página de erro do Spring Boot para evitar vazamento de informações sobre a aplicação (recomendado)
 server:
   error:

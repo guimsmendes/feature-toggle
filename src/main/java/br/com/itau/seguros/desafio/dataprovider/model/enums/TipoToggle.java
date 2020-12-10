@@ -1,4 +1,4 @@
-package br.com.itau.seguros.desafio.model;
+package br.com.itau.seguros.desafio.dataprovider.model.enums;
 
 /**
  * Tipos disponíveis de Feature Toggle.
