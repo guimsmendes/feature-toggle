@@ -19,7 +19,7 @@ import br.com.itau.seguros.desafio.dataprovider.exception.NotFoundException;
 public class ResourceExceptionHandler extends ResponseEntityExceptionHandler{
 	
 	@ExceptionHandler(NotFoundException.class)
-	public ResponseEntity<ApiError> handleNotFoundException(NotFoundException ex) {
+	public ResponseEntity<?> handleNotFoundException(NotFoundException ex) {
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 	}
 	
