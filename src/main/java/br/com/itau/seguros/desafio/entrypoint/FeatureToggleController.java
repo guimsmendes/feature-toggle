@@ -17,6 +17,7 @@ import br.com.itau.seguros.desafio.entrypoint.model.FeatureToggleRequest;
 import br.com.itau.seguros.desafio.usecase.FeatureToggleUseCase;
 
 import java.math.BigDecimal;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -28,35 +29,40 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("/toggle")
 public class FeatureToggleController {
-	
+
 	@Autowired
 	private FeatureToggleUseCase featureToggleUseCase;
 
-    @PostMapping
-    public ResponseEntity<FeatureToggle> registrarFeatureFlag(
-        @RequestBody @Valid FeatureToggleRequest request
-    ) {
-        FeatureToggle featureToggle = featureToggleUseCase.registrarFeatureToggle(request.asFeatureToggle());
-        return ResponseEntity.status(HttpStatus.CREATED).body(featureToggle);
-    }
+	@PostMapping
+	public ResponseEntity<?> registrarFeatureFlag(@RequestBody @Valid FeatureToggleRequest request) {
+		FeatureToggle featureToggle = request.asFeatureToggle();
+		if (request.getTipo().equals("value") && featureToggle.getValor() == null) {
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+		}
+		featureToggleUseCase.registrarFeatureToggle(featureToggle);
+		return ResponseEntity.status(HttpStatus.OK).build();
+	}
 
-    @GetMapping("/{nome}")
-    public ResponseEntity<?> verificarFeatureFlag(
-        @PathVariable String nome,
-        @RequestParam(name = "valor", required = false) String valor
-    ) {
-    	if(featureToggleUseCase.buscarFeatureToggle(nome, new BigDecimal(valor)) == "ATIVO") {
-    		return ResponseEntity.ok().build();
-    	}
-    	return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-    }
+	@GetMapping("/{nome}")
+	public ResponseEntity<?> verificarFeatureFlag(@PathVariable String nome,
+			@RequestParam(name = "valor", required = false) String valor) {
+		if (featureToggleUseCase.buscarFeatureToggle(nome, retornaValorRecebido(valor)) == "ATIVO") {
+			return ResponseEntity.ok().build();
+		}
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+	}
 
-    @DeleteMapping("/{nome}")
-    public ResponseEntity<?> apagarFeatureFlag(
-        @PathVariable String nome
-    ) {
-        featureToggleUseCase.deletarFeatureToggle(nome);
-        return ResponseEntity.ok().build();
-    }
+	@DeleteMapping("/{nome}")
+	public ResponseEntity<?> apagarFeatureFlag(@PathVariable String nome) {
+		featureToggleUseCase.deletarFeatureToggle(nome);
+		return ResponseEntity.ok().build();
+	}
+	
+	private BigDecimal retornaValorRecebido(String valor) {
+		if(valor.isEmpty()) {
+			return null;
+		}
+		return new BigDecimal(valor);
+	}
 
 }

@@ -19,7 +19,7 @@ public class FeatureToggleRequest {
 
     @NotEmpty(message = "Favor informar um tipo válido: Toggle ou Value.")
     String tipo;
-
+    
     BigDecimal valor;
 
     @NotNull(message = "Favor informar se o Feature Toggle está ou não ligado: True ou False.")
