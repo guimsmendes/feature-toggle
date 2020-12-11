@@ -17,7 +17,6 @@ import br.com.itau.seguros.desafio.entrypoint.model.FeatureToggleRequest;
 import br.com.itau.seguros.desafio.usecase.FeatureToggleUseCase;
 
 import java.math.BigDecimal;
-import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -59,7 +58,7 @@ public class FeatureToggleController {
 	}
 	
 	private BigDecimal retornaValorRecebido(String valor) {
-		if(valor.isEmpty()) {
+		if(valor == null) {
 			return null;
 		}
 		return new BigDecimal(valor);

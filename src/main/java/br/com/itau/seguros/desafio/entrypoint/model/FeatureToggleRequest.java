@@ -13,16 +13,16 @@ import java.math.BigDecimal;
 @Value
 public class FeatureToggleRequest {
 	
-	@Pattern(regexp = "^[a-zA-Z0-9_-]+$", message = "Favor informar um nome válido.")
-    @NotEmpty(message = "Favor preencher o nome.")
+	@Pattern(regexp = "^[a-zA-Z0-9_-]+$")
+    @NotEmpty
     String nome;
 
-    @NotEmpty(message = "Favor informar um tipo válido: Toggle ou Value.")
+    @NotEmpty
     String tipo;
     
     BigDecimal valor;
 
-    @NotNull(message = "Favor informar se o Feature Toggle está ou não ligado: True ou False.")
+    @NotNull
     Boolean ligado;
 
     /**
