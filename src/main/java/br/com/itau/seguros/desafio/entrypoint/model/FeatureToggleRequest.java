@@ -1,24 +1,31 @@
-package br.com.itau.seguros.desafio.api.model;
+package br.com.itau.seguros.desafio.entrypoint.model;
 
-import br.com.itau.seguros.desafio.model.FeatureToggle;
-import br.com.itau.seguros.desafio.model.TipoToggle;
-import lombok.Value;
+import br.com.itau.seguros.desafio.dataprovider.model.FeatureToggle;
+import br.com.itau.seguros.desafio.dataprovider.model.enums.TipoToggle;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 import java.math.BigDecimal;
 
-import static java.util.Optional.ofNullable;
-
-@Value
+@NoArgsConstructor
+@Builder
+@Getter
+@AllArgsConstructor
 public class FeatureToggleRequest {
+	
+	@Pattern(regexp = "^[a-zA-Z0-9_-]+$")
     @NotEmpty
     String nome;
 
     @NotEmpty
     String tipo;
-
+    
     BigDecimal valor;
 
     @NotNull
