@@ -128,13 +128,12 @@
 		<!-- /// -->
 	</dependencies>
 
-	
 	<distributionManagement>
-    		<repository>
-        		<id>nexus-releases</id>
-        		<name>releases</name>
-        		<url>http://myNexus/more/stuff</url>
-    		</repository>
+   		<repository>
+    			 <id>github</id>
+    			 <name>GitHub guimsmendes Apache Maven Packages</name>
+     			<url>https://maven.pkg.github.com/guimsmendes/feature-toggle</url>
+   		</repository>
 	</distributionManagement>
 
 	<build>
