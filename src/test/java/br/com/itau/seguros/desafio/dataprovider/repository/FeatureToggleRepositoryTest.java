@@ -48,7 +48,7 @@ public class FeatureToggleRepositoryTest {
 	@Test
 	public void getByNameNullTest() {
 		Optional<FeatureToggle> resultado = featureToggleRepository.getByName("cenario-erro");
-		assertThat(resultado.isEmpty());
+		assertThat(!resultado.isPresent());
 	}
 
 	@Test
@@ -56,7 +56,7 @@ public class FeatureToggleRepositoryTest {
 		FeatureToggle createdFeatureToggle = featureToggleRepository.save(mockFeatureValue());
 		featureToggleRepository.deleteByName(createdFeatureToggle.getNome());
 		Optional<FeatureToggle> resultado = featureToggleRepository.getByName(createdFeatureToggle.getNome());
-		assertThat(resultado.isEmpty());
+		assertThat(!resultado.isPresent());
 	}
 
 	private FeatureToggle mockFeatureToggle() {

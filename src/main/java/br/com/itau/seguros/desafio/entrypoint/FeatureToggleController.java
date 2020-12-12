@@ -26,7 +26,7 @@ import javax.validation.Valid;
  * @author LINSRAF Rafael M. Lins
  */
 @RestController
-@RequestMapping("/toggle")
+@RequestMapping(value="toggle")
 public class FeatureToggleController {
 
 	@Autowired

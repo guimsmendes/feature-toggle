@@ -11,11 +11,9 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
 @Configuration
-
 public class SwaggerConfiguration {
 
 	@Bean
-
 	public Docket produceApi() {
 		return new Docket(DocumentationType.SWAGGER_2).select()
 				.apis(RequestHandlerSelectors.basePackage("br.com.itau.seguros.desafio.entrypoint")).build()
