@@ -8,6 +8,7 @@ Mais instruções podem ser encontradas no arquivo `enunciado.md`.
 
 ![Maven Package](https://github.com/guimsmendes/feature-toggle/workflows/Maven%20Package/badge.svg)
 <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/guimsmendes/feature-toggle">
+<img alt="GitHub Release Date" src="https://img.shields.io/github/release-date/guimsmendes/feature-toggle">
 
 ## Tabela de Conteúdo
 
