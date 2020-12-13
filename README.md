@@ -8,6 +8,8 @@ Mais instruções podem ser encontradas no arquivo `enunciado.md`.
 
 ![Maven Package](https://github.com/guimsmendes/feature-toggle/workflows/Maven%20Package/badge.svg)
 
+https://img.shields.io/github/v/release/guimsmendes/feature-toggle
+
 ## Tabela de Conteúdo
 
 ## Descrição
