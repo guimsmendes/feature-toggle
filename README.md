@@ -6,6 +6,8 @@ Mais instruções podem ser encontradas no arquivo `enunciado.md`.
 
 ## Status
 
+![Maven Package](https://github.com/guimsmendes/feature-toggle/workflows/Maven%20Package/badge.svg)
+
 ## Tabela de Conteúdo
 
 ## Descrição
