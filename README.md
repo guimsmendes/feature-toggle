@@ -1,7 +1,7 @@
 # Serviço de Feature Toggle
 ## Descrição
 Este repositório contém o código de _kickstart_ do desafio de criação de um Serviço de Feature Toggle simples.
-
+o
 ## Status
 
 ![Maven Package](https://github.com/guimsmendes/feature-toggle/workflows/Maven%20Package/badge.svg)
