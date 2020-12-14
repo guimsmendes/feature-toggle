@@ -13,12 +13,12 @@ public class HealthCheckController {
 	
 	
 	@GetMapping
-	public ResponseEntity<?> getHealthCheck(){
+	public ResponseEntity<Object> getHealthCheck(){
 		return ResponseEntity.status(HttpStatus.OK).build();
 	}
 	
 	@PostMapping
-	public ResponseEntity<?> postHealthCheck(){
+	public ResponseEntity<Object> postHealthCheck(){
 		return ResponseEntity.status(HttpStatus.OK).build();
 	}
 }

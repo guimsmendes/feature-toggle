@@ -33,7 +33,7 @@ public class FeatureToggleController {
 	private FeatureToggleUseCase featureToggleUseCase;
 
 	@PostMapping
-	public ResponseEntity<?> registrarFeatureFlag(@RequestBody @Valid FeatureToggleRequest request) {
+	public ResponseEntity<Object> registrarFeatureFlag(@RequestBody @Valid FeatureToggleRequest request) {
 		FeatureToggle featureToggle = request.asFeatureToggle();
 		if (request.getTipo().equals("value") && featureToggle.getValor() == null) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
@@ -43,23 +43,23 @@ public class FeatureToggleController {
 	}
 
 	@GetMapping("/{nome}")
-	public ResponseEntity<?> verificarFeatureFlag(@PathVariable String nome,
+	public ResponseEntity<Object> verificarFeatureFlag(@PathVariable String nome,
 			@RequestParam(name = "valor", required = false) String valor) {
-		if (featureToggleUseCase.buscarFeatureToggle(nome, retornaValorRecebido(valor)) == "ATIVO") {
+		if (featureToggleUseCase.buscarFeatureToggle(nome, retornaValorRecebido(valor)).equals("ATIVO")) {
 			return ResponseEntity.ok().build();
 		}
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 	}
 
 	@DeleteMapping("/{nome}")
-	public ResponseEntity<?> apagarFeatureFlag(@PathVariable String nome) {
+	public ResponseEntity<Object> apagarFeatureFlag(@PathVariable String nome) {
 		featureToggleUseCase.deletarFeatureToggle(nome);
 		return ResponseEntity.ok().build();
 	}
 	
 	private BigDecimal retornaValorRecebido(String valor) {
 		if(valor == null) {
-			return null;
+			return BigDecimal.ZERO;
 		}
 		return new BigDecimal(valor);
 	}

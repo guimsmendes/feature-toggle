@@ -13,20 +13,20 @@ import br.com.itau.seguros.desafio.dataprovider.model.FeatureToggle;
 import br.com.itau.seguros.desafio.dataprovider.model.enums.TipoToggle;
 
 @SpringBootTest
-public class FeatureToggleRepositoryTest {
+class FeatureToggleRepositoryTest {
 
 	@Autowired
 	private FeatureToggleRepository featureToggleRepository;
 
 	@Test
-	public void saveToggleTest() {
+	void saveToggleTest() {
 		FeatureToggle createdFeatureToggle = featureToggleRepository.save(mockFeatureToggle());
 
 		assertThat(createdFeatureToggle.getNome()).isEqualTo("nome-do-feature-toggle");
 	}
 
 	@Test
-	public void saveValueTest() {
+	void saveValueTest() {
 
 		FeatureToggle createdFeatureToggle = featureToggleRepository.save(mockFeatureValue());
 
@@ -34,7 +34,7 @@ public class FeatureToggleRepositoryTest {
 	}
 
 	@Test
-	public void getByNameTest() {
+	void getByNameTest() {
 		FeatureToggle createdFeatureToggle = featureToggleRepository.save(mockFeatureValue());
 
 		FeatureToggle featureToggle = featureToggleRepository.getByName(createdFeatureToggle.getNome()).get();
@@ -42,21 +42,21 @@ public class FeatureToggleRepositoryTest {
 		assertThat(featureToggle.getNome()).isEqualTo("nome-do-feature-value");
 		assertThat(featureToggle.getTipo()).isEqualTo(TipoToggle.VALUE);
 		assertThat(featureToggle.getValor()).isEqualTo(BigDecimal.valueOf(215.63));
-		assertThat(featureToggle.isLigado()).isEqualTo(true);
+		assertThat(featureToggle.isLigado()).isTrue();
 	}
 
 	@Test
-	public void getByNameNullTest() {
+	void getByNameNullTest() {
 		Optional<FeatureToggle> resultado = featureToggleRepository.getByName("cenario-erro");
-		assertThat(!resultado.isPresent());
+		assertThat(!resultado.isPresent()).isTrue();
 	}
 
 	@Test
-	public void deleteTest() {
+	void deleteTest() {
 		FeatureToggle createdFeatureToggle = featureToggleRepository.save(mockFeatureValue());
 		featureToggleRepository.deleteByName(createdFeatureToggle.getNome());
 		Optional<FeatureToggle> resultado = featureToggleRepository.getByName(createdFeatureToggle.getNome());
-		assertThat(!resultado.isPresent());
+		assertThat(!resultado.isPresent()).isTrue();
 	}
 
 	private FeatureToggle mockFeatureToggle() {

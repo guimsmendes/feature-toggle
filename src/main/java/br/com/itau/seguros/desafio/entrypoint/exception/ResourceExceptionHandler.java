@@ -19,15 +19,15 @@ import br.com.itau.seguros.desafio.dataprovider.exception.NotFoundException;
 public class ResourceExceptionHandler extends ResponseEntityExceptionHandler{
 	
 	@ExceptionHandler(NotFoundException.class)
-	public ResponseEntity<?> handleNotFoundException(NotFoundException ex) {
+	public ResponseEntity<Object> handleNotFoundException(NotFoundException ex) {
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 	}
 	
 	@Override
 	protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
 			HttpHeaders headers, HttpStatus status, WebRequest request) {
-		List<String> errors = new ArrayList<String>();
-		ex.getBindingResult().getAllErrors().forEach(error -> {errors.add(error.getDefaultMessage());});
+		List<String> errors = new ArrayList<>();
+		ex.getBindingResult().getAllErrors().forEach(error -> errors.add(error.getDefaultMessage()));
 		
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 	}
