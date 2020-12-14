@@ -29,14 +29,6 @@
 
 ## Descrição
 
-### o que a aplicação faz
-
-### deploy em aws
-
-> 
-
-## Descrição
-
 Este projeto implanta um recurso de **Feature Toggle** utilizando Clean Architecture com objetivo de alternar entre diferentes caminhos o código fonte de forma que funcionalidades possam ser testadas e completadas antes de serem lançadas em produção.
 
 A aplicação poderá ser utilizada de duas formas: via **API** ou instalada no seu projeto como uma **dependência**.
