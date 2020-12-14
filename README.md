@@ -25,8 +25,6 @@
 * [Observability](#observability)
 * [Desenvolvedores](#desenvolvedores)
 * [Solução de Problemas](#solução-de-problemas)
-* [Links Úteis](#links-úteis)
-
 
 
 ## Descrição
@@ -37,6 +35,30 @@
 
 > 
 
+## Descrição
+
+Este projeto implanta um recurso de **Feature Toggle** utilizando Clean Architecture com objetivo de alternar entre diferentes caminhos o código fonte de forma que funcionalidades possam ser testadas e completadas antes de serem lançadas em produção.
+
+A aplicação poderá ser utilizada de duas formas: via **API** ou instalada no seu projeto como uma **dependência**.
+
+* Para as chamadas via **API**, o usuário deverá chamar o caminho de duas formas, ou via domínio implantado pela **AWS Elastic Beanstalk** (**URL:** http://feature-toggle.us-east-2.elasticbeanstalk.com/) ou via **local host** (**URL:** http://localhost:8080). Confira o passo a passo para se conectar com a API no tópico [Como rodar a aplicação: API](#api).
+* Para ser instalada a **dependência** no seu projeto, confira o passo a passo para instalar o pacote no tópico [Como rodar a aplicação: Package](#package)
+
+### Recursos
+
+A API irá expôr 3 endpoints a fim de realizar o **cadastro**, **verificar** e **deletar** uma Feature Flag.
+
+
+- **POST /toggle** - deverá receber as informações enviadas no Body da solicitação em Json e registrar a feature toggle no banco de dados em memória contido na aplicação.
+- **GET /toggle/{nome}?valor=[valor]** - deverá receber o nome e opcionalmente, o valor da feature toggle. Caso exista um feature toggle cadastrado no banco de dados em memória, caso o tipo seja **TOGGLE**, deverá ser retornado considerado como **ATIVO** (retornando como solicitação com sucesso). Caso o tipo seja **VALUE**, o valor inserido deverá ser comparado com o valor em memória, e caso o valor inserido seja maior, deverá ser retornado como **ATIVO**. Caso contrário, como **INATIVO**.
+- **DELETE /toggle/{nome}** - deverá receber o nome da feature toggle, e caso exista no banco de dados em memória, a feature toggle deverá ser excluída do banco de dados.
+
+Além dos recursos informados, a rota também contém um endpoint do **Swagger** que expõe a documentação da API:
+> http://feature-toggle.us-east-2.elasticbeanstalk.com/swagger-ui/index.html
+
+Os métodos chamados via API, também foram disponibilizados para ser integrado na sua aplicação pelo package contido neste repositório. Após a instalação da dependência, poderão ser chamados os métodos registrarFeatureFlag(), verificarFeatureFlag() e apagarFeatureFlag() a partir do Controller da aplicação (FeatureToggleController)
+ 
+
 ## Tecnologias utilizadas
 
 #### Desenvolvimento: [<img src="https://img.shields.io/static/v1?label=spring&message=2.3.4&color=brightgreen&style=for-the-badge&logo=SPRING" width = 120>](https://spring.io/) [<img src="https://img.shields.io/static/v1?label=jdk&message=1.8.0_271&color=orange&style=for-the-badge&logo=JAVA" width = 125>](https://www.oracle.com/br/java/technologies/javase/javase-jdk8-downloads.html)
@@ -46,7 +68,7 @@
 * [Hibernate](https://hibernate.org/)
 
 
-#### Build/Packaging : [<img src="https://img.shields.io/static/v1?label=apache&message=maven&color=red&style=for-the-badge&logo=apache maven" width = 120>](https://maven.apache.org/)
+#### Build/Packaging : [<img src="https://img.shields.io/static/v1?label=apache&message=maven&color=red&style=for-the-badge&logo=apachemaven" width = 120>](https://maven.apache.org/)
 
 #### Tests: [<img src="https://img.shields.io/static/v1?label=junit&message=5&color=green&style=for-the-badge&logo=" width = 70>](https://junit.org/junit5/)
 
@@ -57,8 +79,7 @@
 
 #### Deploy: [<img src="https://img.shields.io/static/v1?label=aws&message=beanstalk&color=orange&style=for-the-badge&logo=amazonaws" width = 120>](https://aws.amazon.com/pt/elasticbeanstalk/)
 
-#### Observability: [<img src="https://img.shields.io/static/v1?label=aws&message=cloudwatch&color=orange&style=for-the-badge&logo=amazonaws" width = 130>](https://aws.amazon.com/pt/cloudwatch/)
-* [Actuator Healthcheck](http://feature-toggle.us-east-2.elasticbeanstalk.com/actuator)
+#### Observability: [<img src="https://img.shields.io/static/v1?label=spring&message=actuator&color=brightgreen&style=for-the-badge&logo=SPRING" width = 130>](http://feature-toggle.us-east-2.elasticbeanstalk.com/actuator)
 
 
 ## Pré requisitos
@@ -135,7 +156,7 @@ Abaixo segue o modelo de dados deste banco de dados:
 
 ## Observability
 
-A fim de acompanhar as métricas da **saúde** da aplicação, foram disponibilizadas métricas via [Actuator](http://feature-toggle.us-east-2.elasticbeanstalk.com/actuator) e seus respectivos endpoints, além da integração via AWS do serviço [Cloudwatch]()
+A fim de acompanhar as métricas da **saúde** da aplicação, foram disponibilizadas métricas via [Actuator](http://feature-toggle.us-east-2.elasticbeanstalk.com/actuator) e seus respectivos endpoints.
 
 ## Desenvolvedores
 
@@ -165,7 +186,3 @@ Na Release 1.0.1 foram configuradas as dependências para documentação da API 
 
 > https://github.com/Nallamachu/SwaggerConfiguration
 
-
-
-## Links úteis
-* [Create Destination CloudWatch]( https://docs.aws.amazon.com/pt_br/AmazonCloudWatch/latest/logs/CreateDestination.html)
