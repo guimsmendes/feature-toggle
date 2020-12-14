@@ -1,4 +1,4 @@
-# Serviço de Feature Toggle
+<img src = "https://i.ibb.co/2jfpZSR/guimsmendes-feature-toggle-dark.png">
 
 [![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=FEATURE_TOGGLE_V1)](https://sonarcloud.io/dashboard?id=FEATURE_TOGGLE_V1)
 
