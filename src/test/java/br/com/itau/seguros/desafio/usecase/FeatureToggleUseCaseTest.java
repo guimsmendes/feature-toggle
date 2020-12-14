@@ -15,7 +15,7 @@ import br.com.itau.seguros.desafio.dataprovider.model.enums.TipoToggle;
 import br.com.itau.seguros.desafio.usecase.gateway.FeatureToggleGateway;
 
 @SpringBootTest
-public class FeatureToggleUseCaseTest {
+class FeatureToggleUseCaseTest {
 
 	@InjectMocks
 	private FeatureToggleUseCase featureToggleUseCase;
@@ -24,7 +24,7 @@ public class FeatureToggleUseCaseTest {
 	private FeatureToggleGateway featureToggleGateway;
 
 	@Test
-	public void registrarFeatureToggleTest() {
+	void registrarFeatureToggleTest() {
 		when(featureToggleGateway.save(any(FeatureToggle.class))).thenReturn(mockFeatureValue());
 
 		FeatureToggle createdFeatureToggle = featureToggleUseCase.registrarFeatureToggle(mockFeatureValue());
@@ -32,12 +32,12 @@ public class FeatureToggleUseCaseTest {
 		assertThat(createdFeatureToggle.getNome()).isEqualTo("nome-do-feature-value");
 		assertThat(createdFeatureToggle.getTipo()).isEqualTo(TipoToggle.VALUE);
 		assertThat(createdFeatureToggle.getValor()).isEqualTo(BigDecimal.valueOf(215.63));
-		assertThat(createdFeatureToggle.isLigado()).isEqualTo(true);
+		assertThat(createdFeatureToggle.isLigado()).isTrue();
 
 	}
 
 	@Test
-	public void buscarFeatureToggleAtivoToggleTest() {
+	void buscarFeatureToggleAtivoToggleTest() {
 		when(featureToggleGateway.getByName(anyString())).thenReturn(mockFeatureToggle());
 		String resultado = featureToggleUseCase.buscarFeatureToggle("nome-do-feature-toggle", null);
 
@@ -46,7 +46,7 @@ public class FeatureToggleUseCaseTest {
 	}
 
 	@Test
-	public void buscarFeatureToggleAtivoValueTest() {
+	void buscarFeatureToggleAtivoValueTest() {
 		when(featureToggleGateway.getByName(anyString())).thenReturn(mockFeatureValue());
 		String resultado = featureToggleUseCase.buscarFeatureToggle("nome-do-feature-value", BigDecimal.valueOf(250));
 
@@ -55,7 +55,7 @@ public class FeatureToggleUseCaseTest {
 	}
 
 	@Test
-	public void buscarFeatureToggleInativoPeloValorTest() {
+	void buscarFeatureToggleInativoPeloValorTest() {
 		when(featureToggleGateway.getByName(anyString())).thenReturn(mockFeatureValue());
 		String resultado = featureToggleUseCase.buscarFeatureToggle("nome-do-feature-value", BigDecimal.valueOf(210));
 
@@ -64,7 +64,7 @@ public class FeatureToggleUseCaseTest {
 	}
 
 	@Test
-	public void buscarFeatureToggleInativoPorqueEstaDesligadoTest() {
+	void buscarFeatureToggleInativoPorqueEstaDesligadoTest() {
 		when(featureToggleGateway.getByName(anyString())).thenReturn(mockFeatureToggleDesligado());
 		String resultado = featureToggleUseCase.buscarFeatureToggle("nome-do-feature-toggle", null);
 
@@ -73,7 +73,7 @@ public class FeatureToggleUseCaseTest {
 	}
 
 	@Test
-	public void buscarFeatureToggleNuloTest() {
+	void buscarFeatureToggleNuloTest() {
 		when(featureToggleGateway.getByName(anyString())).thenReturn(mockFeatureToggleNulo());
 		String resultado = featureToggleUseCase.buscarFeatureToggle(null, null);
 

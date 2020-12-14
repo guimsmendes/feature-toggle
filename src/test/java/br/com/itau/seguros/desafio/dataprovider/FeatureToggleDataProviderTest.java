@@ -18,7 +18,7 @@ import br.com.itau.seguros.desafio.dataprovider.model.enums.TipoToggle;
 import br.com.itau.seguros.desafio.dataprovider.repository.FeatureToggleRepository;
 
 @SpringBootTest
-public class FeatureToggleDataProviderTest {
+class FeatureToggleDataProviderTest {
 
 	@InjectMocks
 	private FeatureToggleDataprovider featureToggleDataProvider;
@@ -27,7 +27,7 @@ public class FeatureToggleDataProviderTest {
 	private FeatureToggleRepository featureToggleRepository;
 
 	@Test
-	public void saveTest() {
+	void saveTest() {
 		when(featureToggleRepository.save(any(FeatureToggle.class))).thenReturn(mockFeatureToggle());
 
 		FeatureToggle createdFeatureToggle = featureToggleDataProvider.save(mockFeatureToggle());
@@ -35,11 +35,11 @@ public class FeatureToggleDataProviderTest {
 		assertThat(createdFeatureToggle.getNome()).isEqualTo("nome-do-feature-toggle");
 		assertThat(createdFeatureToggle.getTipo()).isEqualTo(TipoToggle.VALUE);
 		assertThat(createdFeatureToggle.getValor()).isEqualTo(BigDecimal.valueOf(215.63));
-		assertThat(createdFeatureToggle.isLigado()).isEqualTo(true);
+		assertThat(createdFeatureToggle.isLigado()).isTrue();
 	}
 
 	@Test
-	public void getByNameTest() {
+	void getByNameTest() {
 		when(featureToggleRepository.getByName(anyString())).thenReturn(Optional.of(mockFeatureToggle()));
 		
 		FeatureToggle featureToggle = featureToggleDataProvider.getByName("nome-do-feature-toggle");
@@ -47,12 +47,12 @@ public class FeatureToggleDataProviderTest {
 		assertThat(featureToggle.getNome()).isEqualTo("nome-do-feature-toggle");
 		assertThat(featureToggle.getTipo()).isEqualTo(TipoToggle.VALUE);
 		assertThat(featureToggle.getValor()).isEqualTo(BigDecimal.valueOf(215.63));
-		assertThat(featureToggle.isLigado()).isEqualTo(true);
+		assertThat(featureToggle.isLigado()).isTrue();
 
 	}
 
 	@Test
-	public void getByNameExceptionTest() {
+	void getByNameExceptionTest() {
 		when(featureToggleRepository.getByName(anyString())).thenReturn(Optional.empty());
 
 		Assertions.assertThrows(NotFoundException.class,

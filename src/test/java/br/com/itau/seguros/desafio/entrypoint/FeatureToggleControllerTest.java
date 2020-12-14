@@ -17,7 +17,7 @@ import br.com.itau.seguros.desafio.entrypoint.model.FeatureToggleRequest;
 import br.com.itau.seguros.desafio.usecase.FeatureToggleUseCase;
 
 @SpringBootTest
-public class FeatureToggleControllerTest {
+class FeatureToggleControllerTest {
 
 	@Mock
 	private FeatureToggleUseCase featureToggleUseCase;
@@ -26,7 +26,7 @@ public class FeatureToggleControllerTest {
 	private FeatureToggleController featureToggleController;
 
 	@Test
-	public void registrarToggle() {
+	void registrarToggle() {
 		when(featureToggleUseCase.registrarFeatureToggle(any(FeatureToggle.class))).thenReturn(mockFeatureToggle());
 
 		ResponseEntity<?> result = featureToggleController.registrarFeatureFlag(mockFeatureToggleRequest());
@@ -34,7 +34,7 @@ public class FeatureToggleControllerTest {
 	}
 
 	@Test
-	public void registrarToggleInvalido() {
+	void registrarToggleInvalido() {
 		when(featureToggleUseCase.registrarFeatureToggle(any(FeatureToggle.class))).thenReturn(mockFeatureToggle());
 
 		ResponseEntity<?> result = featureToggleController.registrarFeatureFlag(mockFeatureToggleRequestInvalido());
@@ -42,7 +42,7 @@ public class FeatureToggleControllerTest {
 	}
 
 	@Test
-	public void verificarToggleAtivo() {
+	void verificarToggleAtivo() {
 		when(featureToggleUseCase.buscarFeatureToggle(anyString(), any(BigDecimal.class))).thenReturn("ATIVO");
 
 		ResponseEntity<?> result = featureToggleController.verificarFeatureFlag("teste-verificar-toggle-ativo",
@@ -51,7 +51,7 @@ public class FeatureToggleControllerTest {
 	}
 
 	@Test
-	public void verificarToggleInativo() {
+	void verificarToggleInativo() {
 		when(featureToggleUseCase.buscarFeatureToggle(anyString(), any(BigDecimal.class))).thenReturn("INATIVO");
 
 		ResponseEntity<?> result = featureToggleController.verificarFeatureFlag("teste-verificar-toggle-ativo", null);
@@ -59,7 +59,7 @@ public class FeatureToggleControllerTest {
 	}
 
 	@Test
-	public void deleteToggle() {
+	void deleteToggle() {
 		ResponseEntity<?> result = featureToggleController.apagarFeatureFlag("teste-deletar-toggle");
 		assertThat(result).isEqualTo(ResponseEntity.status(HttpStatus.OK).build());
 	}

@@ -37,9 +37,7 @@ public class FeatureToggleUseCase {
 	}
 
 	private boolean verificarTipo(FeatureToggle featureToggle, BigDecimal valor) {
-		if (featureToggle.getTipo() == TipoToggle.VALUE && valor == null) {
-			return false;
-		} else if(featureToggle.getTipo() == TipoToggle.VALUE && featureToggle.getValor().compareTo(valor) == 1) {
+		if (featureToggle.getTipo() == TipoToggle.VALUE && featureToggle.getValor().compareTo(valor) > 0) {
 			return false;
 		}
 		return true;
