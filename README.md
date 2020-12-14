@@ -86,7 +86,6 @@ Para poder rodar a aplicação na sua máquina, é necessário ter as seguintes 
 	6. `java -jar itau-desafio-toggle-1.0.3.jar`
 * **Pronto!** Agora a aplicação já está rodando no seu: 
 	* > https://localhost:8080/
-	* 
 
 
 **Endpoints criados:**
