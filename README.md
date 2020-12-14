@@ -46,7 +46,7 @@
 * [Hibernate](https://hibernate.org/)
 
 
-#### Build/Packaging : [<img src="https://img.shields.io/static/v1?label=apache&message=maven&color=red&style=for-the-badge&logo=apache maven"/>](https://maven.apache.org/)
+#### Build/Packaging : [<img src="https://img.shields.io/static/v1?label=apache&message=maven&color=red&style=for-the-badge&logo=apachemaven"/>](https://maven.apache.org/)
 
 #### Tests: [<img src="https://img.shields.io/static/v1?label=junit&message=5&color=green&style=for-the-badge&logo="/>](https://junit.org/junit5/)
 
@@ -55,9 +55,9 @@
 
 #### API Documentation: [<img src="https://img.shields.io/static/v1?label=swagger&message=3.0.0&color=brightgreen&style=for-the-badge&logo=swagger"/>](http://feature-toggle.us-east-2.elasticbeanstalk.com/swagger-ui/index.html)
 
-#### Deploy: [<img src="https://img.shields.io/static/v1?label=elastic&message=beanstalk&color=orange&style=for-the-badge&logo=amazon aws"/>](https://aws.amazon.com/pt/elasticbeanstalk/)
+#### Deploy: [<img src="https://img.shields.io/static/v1?label=aws&message=beanstalk&color=orange&style=for-the-badge&logo=amazonaws"/>](https://aws.amazon.com/pt/elasticbeanstalk/)
 
-#### Observability: [<img src="https://img.shields.io/static/v1?label=amazon&message=cloudwatch&color=orange&style=for-the-badge&logo=amazon aws"/>](https://aws.amazon.com/pt/cloudwatch/)
+#### Observability: [<img src="https://img.shields.io/static/v1?label=aws&message=cloudwatch&color=orange&style=for-the-badge&logo=amazonaws"/>](https://aws.amazon.com/pt/cloudwatch/)
 * [Actuator Healthcheck](http://feature-toggle.us-east-2.elasticbeanstalk.com/actuator)
 
 
