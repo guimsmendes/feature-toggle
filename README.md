@@ -39,25 +39,25 @@
 
 ## Tecnologias utilizadas
 
-#### Desenvolvimento: [<img src="https://img.shields.io/static/v1?label=spring&message=2.3.4&color=brightgreen&style=for-the-badge&logo=SPRING"/>](https://spring.io/) [<img src="https://img.shields.io/static/v1?label=jdk&message=1.8.0_271&color=orange&style=for-the-badge&logo=JAVA"/>](https://www.oracle.com/br/java/technologies/javase/javase-jdk8-downloads.html)
+#### Desenvolvimento: [<img src="https://img.shields.io/static/v1?label=spring&message=2.3.4&color=brightgreen&style=for-the-badge&logo=SPRING" width = 120>](https://spring.io/) [<img src="https://img.shields.io/static/v1?label=jdk&message=1.8.0_271&color=orange&style=for-the-badge&logo=JAVA" width = 125>](https://www.oracle.com/br/java/technologies/javase/javase-jdk8-downloads.html)
 
 * [Lombok](https://projectlombok.org/)
 * [H2 Database](https://www.h2database.com/html/main.html)
 * [Hibernate](https://hibernate.org/)
 
 
-#### Build/Packaging : [<img src="https://img.shields.io/static/v1?label=apache&message=maven&color=red&style=for-the-badge&logo=apachemaven"/>](https://maven.apache.org/)
+#### Build/Packaging : [<img src="https://img.shields.io/static/v1?label=apache&message=maven&color=red&style=for-the-badge&logo=apache maven" width = 120>](https://maven.apache.org/)
 
-#### Tests: [<img src="https://img.shields.io/static/v1?label=junit&message=5&color=green&style=for-the-badge&logo="/>](https://junit.org/junit5/)
+#### Tests: [<img src="https://img.shields.io/static/v1?label=junit&message=5&color=green&style=for-the-badge&logo=" width = 70>](https://junit.org/junit5/)
 
-#### Code Review/Inspection: [<img src="https://img.shields.io/static/v1?label=sonarsource&message=3.7.0&color=blue&style=for-the-badge&logo=sonarsource"/>](https://sonarcloud.io/dashboard?id=FEATURE_TOGGLE_V1)
+#### Code Review/Inspection: [<img src="https://img.shields.io/static/v1?label=sonarsource&message=3.7.0&color=blue&style=for-the-badge&logo=sonarsource" width = 150>](https://sonarcloud.io/dashboard?id=FEATURE_TOGGLE_V1)
 
 
-#### API Documentation: [<img src="https://img.shields.io/static/v1?label=swagger&message=3.0.0&color=brightgreen&style=for-the-badge&logo=swagger"/>](http://feature-toggle.us-east-2.elasticbeanstalk.com/swagger-ui/index.html)
+#### API Documentation: [<img src="https://img.shields.io/static/v1?label=swagger&message=3.0.0&color=brightgreen&style=for-the-badge&logo=swagger" width = 125>](http://feature-toggle.us-east-2.elasticbeanstalk.com/swagger-ui/index.html)
 
-#### Deploy: [<img src="https://img.shields.io/static/v1?label=aws&message=beanstalk&color=orange&style=for-the-badge&logo=amazonaws"/>](https://aws.amazon.com/pt/elasticbeanstalk/)
+#### Deploy: [<img src="https://img.shields.io/static/v1?label=aws&message=beanstalk&color=orange&style=for-the-badge&logo=amazonaws" width = 120>](https://aws.amazon.com/pt/elasticbeanstalk/)
 
-#### Observability: [<img src="https://img.shields.io/static/v1?label=aws&message=cloudwatch&color=orange&style=for-the-badge&logo=amazonaws"/>](https://aws.amazon.com/pt/cloudwatch/)
+#### Observability: [<img src="https://img.shields.io/static/v1?label=aws&message=cloudwatch&color=orange&style=for-the-badge&logo=amazonaws" width = 130>](https://aws.amazon.com/pt/cloudwatch/)
 * [Actuator Healthcheck](http://feature-toggle.us-east-2.elasticbeanstalk.com/actuator)
 
 
