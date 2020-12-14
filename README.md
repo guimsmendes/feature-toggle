@@ -17,7 +17,7 @@ Este repositório contém o código de _kickstart_ do desafio de criação de um
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=FEATURE_TOGGLE_V1&metric=code_smells)](https://sonarcloud.io/dashboard?id=FEATURE_TOGGLE_V1)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=FEATURE_TOGGLE_V1&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=FEATURE_TOGGLE_V1)
 
-![Maven Package](https://github.com/guimsmendes/feature-toggle/workflows/Maven%20Package/badge.svg)
+![Maven Package](https://github.com/guimsmendes/feature-toggle/workflows/Maven%20Package/badge.svg?branch=1.0.2)
 <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/guimsmendes/feature-toggle">
 <img alt="GitHub Release Date" src="https://img.shields.io/github/release-date/guimsmendes/feature-toggle">
 
