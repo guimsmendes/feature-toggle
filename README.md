@@ -7,7 +7,7 @@ Este repositório contém o código de _kickstart_ do desafio de criação de um
 <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/guimsmendes/feature-toggle">
 <img alt="GitHub Release Date" src="https://img.shields.io/github/release-date/guimsmendes/feature-toggle">
 
-[![Quality gate](https://localhost:9000/api/project_badges/quality_gate?project=FEATURE_TOGGLE_V1)](https://localhost:9000/dashboard?id=FEATURE_TOGGLE_V1)
+[![Quality gate](https://localhost:9000/api/project_badges/quality_gate?project=FEATURE_TOGGLE_V1)](http://localhost:9000/dashboard?id=FEATURE_TOGGLE_V1)
 
 ## Tabela de Conteúdo
 
