@@ -69,7 +69,7 @@ jobs:
       with:
         task-definition: feature-toggle-task.json
         container-name: tomcat-webserver
-        image: ${{ steps.build-image.outputs.image }}
+        image: docker.io/guimsmendes/feature-toggle-flag
 
     - name: Deploy Amazon ECS task definition
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
