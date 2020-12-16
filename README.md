@@ -32,7 +32,7 @@ Este projeto implanta um recurso de **Feature Toggle** utilizando Clean Architec
 
 A aplicação poderá ser utilizada de duas formas: via **API** ou instalada no seu projeto como uma **dependência**.
 
-* Para as chamadas via **API**, o usuário deverá chamar o caminho de duas formas, ou via domínio implantado pela **AWS Elastic Beanstalk** (**URL:** http://feature-toggle.us-east-2.elasticbeanstalk.com/) ou via **local host** (**URL:** http://localhost:8080). Confira o passo a passo para se conectar com a API no tópico [Como rodar a aplicação: API](#api).
+* Para as chamadas via **API**, o usuário poderá chamar o caminho de três formas, ou via domínio implantado pela **AWS Elastic Container Service** por integração contínua (**URL:** http://awseb-awseb-9rii3cdahste-1914091692.us-east-2.elb.amazonaws.com/), via imagem **Docker** ou via **local host** (**URL:** http://localhost:8080). Confira o passo a passo para se conectar com a API no tópico [Como rodar a aplicação: API](#api).
 * Para ser instalada a **dependência** no seu projeto, confira o passo a passo para instalar o pacote no tópico [Como rodar a aplicação: Package](#package)
 
 ### Recursos
@@ -68,7 +68,10 @@ Os métodos chamados via API, também foram disponibilizados para ser integrado 
 
 #### API Documentation: [<img src="https://img.shields.io/static/v1?label=swagger&message=3.0.0&color=brightgreen&style=for-the-badge&logo=swagger" width = 125>](http://feature-toggle.us-east-2.elasticbeanstalk.com/swagger-ui/index.html)
 
-#### Deploy: [<img src="https://img.shields.io/static/v1?label=aws&message=beanstalk&color=orange&style=for-the-badge&logo=amazonaws" width = 120>](https://aws.amazon.com/pt/elasticbeanstalk/)
+#### Integração Contínua: [<img src="https://img.shields.io/static/v1?label=docker&message=hub&color=blue&style=for-the-badge&logo=docker" width = 120>](https://aws.amazon.com/pt/elasticbeanstalk/)
+
+
+#### Deploy: [<img src="https://img.shields.io/static/v1?label=aws&message=ECS&color=orange&style=for-the-badge&logo=amazonaws" width = 80>](https://aws.amazon.com/pt/ecs/?whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc&ecs-blogs.sort-by=item.additionalFields.createdDate&ecs-blogs.sort-order=desc)
 
 #### Observability: [<img src="https://img.shields.io/static/v1?label=spring&message=actuator&color=brightgreen&style=for-the-badge&logo=SPRING" width = 130>](http://feature-toggle.us-east-2.elasticbeanstalk.com/actuator)
 
@@ -77,28 +80,41 @@ Os métodos chamados via API, também foram disponibilizados para ser integrado 
 
 Para poder rodar a aplicação na sua máquina, é necessário ter as seguintes tecnologias instaladas:
 
-* [Java JDK 1.8](https://www.oracle.com/br/java/technologies/javase/javase-jdk8-downloads.html)
+* [Java JDK 1.8.0_271](https://www.oracle.com/br/java/technologies/javase/javase-jdk8-downloads.html)
 * [SpringBoot](https://spring.io/)
+* [Maven](https://maven.apache.org/)
+
+Para rodar a imagem da aplicação, é necessário apenas ter instalado na sua máquina:
+* [Docker](https://www.docker.com/)
+
 
 ## Como rodar a aplicação
 
 ### API
 
-**Via AWS Beanstalk:**
-* Para rodar a API, foi disponibilizado um host via deploy na AWS Beanstalk para acessar facilmente os endpoints via Postman:
-	* > http://feature-toggle.us-east-2.elasticbeanstalk.com/
+**Via AWS Elastic Container Service:**
+* Para rodar a API, foi disponibilizado um host via deploy na AWS ECS para acessar facilmente os endpoints via Postman:
+	* > http://awseb-awseb-9rii3cdahste-1914091692.us-east-2.elb.amazonaws.com/
+	
+**Via imagem Docker:**
+* Para rodar a API pela imagem Docker, faça o download da imagem no link:
+
+* Caso já tenha o Docker instalado em sua máquina, execute o comando:
+* `docker pull docker.io/guimsmendes/feature-toggle-flag`
+* `docker run -p 8080:8080 docker.io/guimsmendes/feature-toggle-flag`
+* **Pronto!** Agora a aplicação já está rodando no seu: 
+	* > https://localhost:8080/
 
 **LocalHost:**
-* Para rodar a API via localhost, será necessário realizar o clone da aplicação via **cmd**:
+* Para rodar a API via localhost, será necessário realizar o clone da aplicação via **cmd**. Tenha certeza que a sua versão do JDK instalada é a [Java JDK 1.8.0_271](https://www.oracle.com/br/java/technologies/javase/javase-jdk8-downloads.html):
 	1. Selecione a pasta que deseja instalar a aplicação 
 	2. `git clone https://github.com/guimsmendes/feature-toggle.git`
 	3. `cd feature-toggle`
 	4. `mvn install`
 	5. `cd target`
-	6. `java -jar itau-desafio-toggle-1.0.3.jar`
+	6. `java -jar itau-desafio-feature-toggle-1.0.7.jar`
 * **Pronto!** Agora a aplicação já está rodando no seu: 
 	* > https://localhost:8080/
-
 
 **Endpoints criados:**
 * `/actuator` - Retorna os endpoints com informações de saúde da aplicação
@@ -157,6 +173,22 @@ A fim de acompanhar as métricas da **saúde** da aplicação, foram disponibili
 
 
 ## Solução de Problemas
+
+###
+
+### Release 1.0.7
+O recurso **AWS ECR** para disponibilização de uma imagem Docker só está conseguindo subir para imagens privadas. O comando `aws ecr-public` não está mapeado nas versões da aws-cli por mais que esteja sendo indicado o uso nas documentações.
+Desta forma, para poder disponibilizar uma imagem pública para o usuário, foi substituído o recurso AWS ECR para uma imagem no **DockerHub**.
+
+### Release 1.0.6
+Ajustado erro de cluster no deploy da **AWS ECS** no arquivo `aws.yml`
+
+### Release 1.0.5
+Na Release 1.0.5 foi substituído o serviço **AWS Beanstalk** para hospedagem da API pelo recurso **AWS Elastic Container Service**, a fim de facilitar a integração contínua. Foi adicionado um `aws.yml` para que toda vez que uma alteração seja disponibilizada em uma Release, um pipeline seja acionado e a imagem Docker seja atualizada, assim como o serviço hospedado no domínio da AWS ECS.
+
+### Release 1.0.4
+
+Na Release 1.0.4 foi adicionado o arquivo **Dockerfile** para subir a imagem da aplicação Docker via workflow **AWS** para **ECR** (Elastic Container Registry) a fim de hospedar a imagem na cloud pública para facilitar a execução da aplicação em outras máquinas.
 
 ### Release 1.0.3
 
