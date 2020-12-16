@@ -101,7 +101,7 @@ Para rodar a imagem da aplicação, é necessário apenas ter instalado na sua m
 
 * Caso já tenha o Docker instalado em sua máquina, execute o comando:
 * `docker pull docker.io/guimsmendes/feature-toggle-flag`
-* `docker run docker.io/guimsmendes/feature-toggle-flag`
+* `docker run -p 8080:8080 docker.io/guimsmendes/feature-toggle-flag`
 * **Pronto!** Agora a aplicação já está rodando no seu: 
 	* > https://localhost:8080/
 
