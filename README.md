@@ -32,7 +32,7 @@ Este projeto implanta um recurso de **Feature Toggle** utilizando Clean Architec
 
 A aplicação poderá ser utilizada de duas formas: via **API** ou instalada no seu projeto como uma **dependência**.
 
-* Para as chamadas via **API**, o usuário deverá chamar o caminho de duas formas, ou via domínio implantado pela **AWS Elastic Beanstalk** (**URL:** http://feature-toggle.us-east-2.elasticbeanstalk.com/), via imagem **Docker** que poderá ser baixada pelo link hospedado na **AWS Elastic Container Registry** (**URL:** ) ou via **local host** (**URL:** http://localhost:8080). Confira o passo a passo para se conectar com a API no tópico [Como rodar a aplicação: API](#api).
+* Para as chamadas via **API**, o usuário deverá chamar o caminho de duas formas, ou via domínio implantado pela **AWS Elastic Beanstalk** (**URL:** http://feature-toggle.us-east-2.elasticbeanstalk.com/), via imagem **Docker** ou via **local host** (**URL:** http://localhost:8080). Confira o passo a passo para se conectar com a API no tópico [Como rodar a aplicação: API](#api).
 * Para ser instalada a **dependência** no seu projeto, confira o passo a passo para instalar o pacote no tópico [Como rodar a aplicação: Package](#package)
 
 ### Recursos
@@ -69,10 +69,9 @@ Os métodos chamados via API, também foram disponibilizados para ser integrado 
 #### API Documentation: [<img src="https://img.shields.io/static/v1?label=swagger&message=3.0.0&color=brightgreen&style=for-the-badge&logo=swagger" width = 125>](http://feature-toggle.us-east-2.elasticbeanstalk.com/swagger-ui/index.html)
 
 #### Integração Contínua: [<img src="https://img.shields.io/static/v1?label=docker&message=hub&color=blue&style=for-the-badge&logo=docker" width = 120>](https://aws.amazon.com/pt/elasticbeanstalk/)
-[<img src="https://img.shields.io/static/v1?label=aws&message=ECR&color=orange&style=for-the-badge&logo=amazonaws" width = 80>](https://aws.amazon.com/pt/ecr/)
-[<img src="https://img.shields.io/static/v1?label=aws&message=ECS&color=orange&style=for-the-badge&logo=amazonaws" width = 80>](https://aws.amazon.com/pt/ecs/?whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc&ecs-blogs.sort-by=item.additionalFields.createdDate&ecs-blogs.sort-order=desc)
 
-#### Deploy: [<img src="https://img.shields.io/static/v1?label=aws&message=beanstalk&color=orange&style=for-the-badge&logo=amazonaws" width = 120>](https://aws.amazon.com/pt/elasticbeanstalk/)
+
+#### Deploy: [<img src="https://img.shields.io/static/v1?label=aws&message=beanstalk&color=orange&style=for-the-badge&logo=amazonaws" width = 120>](https://aws.amazon.com/pt/elasticbeanstalk/) [<img src="https://img.shields.io/static/v1?label=aws&message=ECS&color=orange&style=for-the-badge&logo=amazonaws" width = 80>](https://aws.amazon.com/pt/ecs/?whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc&ecs-blogs.sort-by=item.additionalFields.createdDate&ecs-blogs.sort-order=desc)
 
 #### Observability: [<img src="https://img.shields.io/static/v1?label=spring&message=actuator&color=brightgreen&style=for-the-badge&logo=SPRING" width = 130>](http://feature-toggle.us-east-2.elasticbeanstalk.com/actuator)
 
@@ -97,11 +96,12 @@ Para rodar a imagem da aplicação, é necessário apenas ter instalado na sua m
 * Para rodar a API, foi disponibilizado um host via deploy na AWS Beanstalk para acessar facilmente os endpoints via Postman:
 	* > http://feature-toggle.us-east-2.elasticbeanstalk.com/
 	
-**Via imagem Docker - AWS ECR:**
-* Para rodar a API pela imagem Docker hospedada na ECR, faça o download da imagem no link:
+**Via imagem Docker:**
+* Para rodar a API pela imagem Docker, faça o download da imagem no link:
 
 * Caso já tenha o Docker instalado em sua máquina, execute o comando:
-* `docker `
+* `docker pull docker.io/guimsmendes/feature-toggle-flag`
+* `docker run docker.io/guimsmendes/feature-toggle-flag`
 * **Pronto!** Agora a aplicação já está rodando no seu: 
 	* > https://localhost:8080/
 
