@@ -59,7 +59,7 @@ jobs:
         # Build a docker container and
         # push it to ECR so that it can
         # be deployed to ECS.
-        docker login -u guimsmendes -p ${{ secrets.DOCKER_PASSWORD }} -e guimsmendes@gmail.com
+        docker login -u guimsmendes -p ${{ secrets.DOCKER_PASSWORD }}
         docker build -t guimsmendes/feature-toggle-flag .
         docker push guimsmendes/feature-toggle-flag
 
