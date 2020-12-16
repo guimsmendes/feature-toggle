@@ -59,9 +59,8 @@ jobs:
         # Build a docker container and
         # push it to ECR so that it can
         # be deployed to ECS.
+        aws ecr-public get-login-password | docker login --username AWS --password-stdin $ECR_REGISTRY
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-        docker run --rm -it amazon/aws-cli:latest
-        aws ecr-public get-login-password --region us-east-2 | docker login --username AWS --password-stdin public.ecr.aws
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
 
