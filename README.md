@@ -82,7 +82,7 @@ Para poder rodar a aplicação na sua máquina, é necessário ter as seguintes 
 
 * [Java JDK 1.8.0_271](https://www.oracle.com/br/java/technologies/javase/javase-jdk8-downloads.html)
 * [SpringBoot](https://spring.io/)
-* Maven
+* [Maven](https://maven.apache.org/)
 
 Para rodar a imagem da aplicação, é necessário apenas ter instalado na sua máquina:
 * [Docker](https://www.docker.com/)
@@ -106,7 +106,7 @@ Para rodar a imagem da aplicação, é necessário apenas ter instalado na sua m
 	* > https://localhost:8080/
 
 **LocalHost:**
-* Para rodar a API via localhost, será necessário realizar o clone da aplicação via **cmd**:
+* Para rodar a API via localhost, será necessário realizar o clone da aplicação via **cmd**. Tenha certeza que a sua versão do JDK instalada é a [Java JDK 1.8.0_271](https://www.oracle.com/br/java/technologies/javase/javase-jdk8-downloads.html):
 	1. Selecione a pasta que deseja instalar a aplicação 
 	2. `git clone https://github.com/guimsmendes/feature-toggle.git`
 	3. `cd feature-toggle`
