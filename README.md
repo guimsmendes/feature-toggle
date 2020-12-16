@@ -95,7 +95,7 @@ Para poder rodar a aplicação na sua máquina, é necessário ter as seguintes 
 	3. `cd feature-toggle`
 	4. `mvn install`
 	5. `cd target`
-	6. `java -jar itau-desafio-toggle-1.0.3.jar`
+	6. `java -jar itau-desafio-feature-toggle-1.0.3.jar`
 * **Pronto!** Agora a aplicação já está rodando no seu: 
 	* > https://localhost:8080/
 
