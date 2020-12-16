@@ -59,8 +59,9 @@ jobs:
         # Build a docker container and
         # push it to ECR so that it can
         # be deployed to ECS.
-        docker build -t feature-toggle-flag .
-        docker push feature-toggle-flag
+        docker login -u guimsmendes -p ${{ secrets.DOCKER_PASSWORD }} -e guimsmendes@gmail.com
+        docker build -t guimsmendes/feature-toggle-flag .
+        docker push guimsmendes/feature-toggle-flag
 
     - name: Fill in the new image ID in the Amazon ECS task definition
       id: task-def
