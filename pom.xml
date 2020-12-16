@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>br.com.itau.seguros.desafio</groupId>
 	<artifactId>itau-desafio-feature-toggle</artifactId>
-	<version>1.0.3</version>
+	<version>1.0.4</version>
 	<name>desafio-feature-toggle</name>
 	<description>Desafio Feature Toggle da Comunidade de Seguros</description>
 
