@@ -76,5 +76,5 @@ jobs:
       with:
         task-definition: ${{ steps.task-def.outputs.task-definition }}
         service: tomcat-webserver-service 
-        cluster: default
+        cluster: feature-toggle-cluster
         wait-for-service-stability: true
