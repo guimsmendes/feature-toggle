@@ -32,7 +32,7 @@ Este projeto implanta um recurso de **Feature Toggle** utilizando Clean Architec
 
 A aplicação poderá ser utilizada de duas formas: via **API** ou instalada no seu projeto como uma **dependência**.
 
-* Para as chamadas via **API**, o usuário deverá chamar o caminho de duas formas, ou via domínio implantado pela **AWS Elastic Beanstalk** (**URL:** http://feature-toggle.us-east-2.elasticbeanstalk.com/) ou via **local host** (**URL:** http://localhost:8080). Confira o passo a passo para se conectar com a API no tópico [Como rodar a aplicação: API](#api).
+* Para as chamadas via **API**, o usuário deverá chamar o caminho de duas formas, ou via domínio implantado pela **AWS Elastic Beanstalk** (**URL:** http://feature-toggle.us-east-2.elasticbeanstalk.com/), via imagem **Docker** que poderá ser baixada pelo link hospedado na **AWS Elastic Container Registry** (**URL:** ) ou via **local host** (**URL:** http://localhost:8080). Confira o passo a passo para se conectar com a API no tópico [Como rodar a aplicação: API](#api).
 * Para ser instalada a **dependência** no seu projeto, confira o passo a passo para instalar o pacote no tópico [Como rodar a aplicação: Package](#package)
 
 ### Recursos
@@ -68,6 +68,10 @@ Os métodos chamados via API, também foram disponibilizados para ser integrado 
 
 #### API Documentation: [<img src="https://img.shields.io/static/v1?label=swagger&message=3.0.0&color=brightgreen&style=for-the-badge&logo=swagger" width = 125>](http://feature-toggle.us-east-2.elasticbeanstalk.com/swagger-ui/index.html)
 
+#### Integração Contínua: [<img src="https://img.shields.io/static/v1?label=docker&message=hub&color=blue&style=for-the-badge&logo=docker" width = 120>](https://aws.amazon.com/pt/elasticbeanstalk/)
+[<img src="https://img.shields.io/static/v1?label=aws&message=ECR&color=orange&style=for-the-badge&logo=amazonaws" width = 80>](https://aws.amazon.com/pt/ecr/)
+[<img src="https://img.shields.io/static/v1?label=aws&message=ECS&color=orange&style=for-the-badge&logo=amazonaws" width = 80>](https://aws.amazon.com/pt/ecs/?whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc&ecs-blogs.sort-by=item.additionalFields.createdDate&ecs-blogs.sort-order=desc)
+
 #### Deploy: [<img src="https://img.shields.io/static/v1?label=aws&message=beanstalk&color=orange&style=for-the-badge&logo=amazonaws" width = 120>](https://aws.amazon.com/pt/elasticbeanstalk/)
 
 #### Observability: [<img src="https://img.shields.io/static/v1?label=spring&message=actuator&color=brightgreen&style=for-the-badge&logo=SPRING" width = 130>](http://feature-toggle.us-east-2.elasticbeanstalk.com/actuator)
@@ -77,8 +81,13 @@ Os métodos chamados via API, também foram disponibilizados para ser integrado 
 
 Para poder rodar a aplicação na sua máquina, é necessário ter as seguintes tecnologias instaladas:
 
-* [Java JDK 1.8](https://www.oracle.com/br/java/technologies/javase/javase-jdk8-downloads.html)
+* [Java JDK 1.8.0_271](https://www.oracle.com/br/java/technologies/javase/javase-jdk8-downloads.html)
 * [SpringBoot](https://spring.io/)
+* Maven
+
+Para rodar a imagem da aplicação, é necessário apenas ter instalado na sua máquina:
+* [Docker](https://www.docker.com/)
+
 
 ## Como rodar a aplicação
 
@@ -87,6 +96,14 @@ Para poder rodar a aplicação na sua máquina, é necessário ter as seguintes 
 **Via AWS Beanstalk:**
 * Para rodar a API, foi disponibilizado um host via deploy na AWS Beanstalk para acessar facilmente os endpoints via Postman:
 	* > http://feature-toggle.us-east-2.elasticbeanstalk.com/
+	
+**Via imagem Docker - AWS ECR:**
+* Para rodar a API pela imagem Docker hospedada na ECR, faça o download da imagem no link:
+
+* Caso já tenha o Docker instalado em sua máquina, execute o comando:
+* `docker `
+* **Pronto!** Agora a aplicação já está rodando no seu: 
+	* > https://localhost:8080/
 
 **LocalHost:**
 * Para rodar a API via localhost, será necessário realizar o clone da aplicação via **cmd**:
@@ -98,7 +115,6 @@ Para poder rodar a aplicação na sua máquina, é necessário ter as seguintes 
 	6. `java -jar itau-desafio-feature-toggle-1.0.3.jar`
 * **Pronto!** Agora a aplicação já está rodando no seu: 
 	* > https://localhost:8080/
-
 
 **Endpoints criados:**
 * `/actuator` - Retorna os endpoints com informações de saúde da aplicação
@@ -157,6 +173,16 @@ A fim de acompanhar as métricas da **saúde** da aplicação, foram disponibili
 
 
 ## Solução de Problemas
+
+### Release 1.0.6
+Ajustado erro de cluster no deploy da **AWS ECS**
+
+### Release 1.0.5
+Adicionado o serviço **AWS ECS** para deploy da imagem
+
+### Release 1.0.4
+
+Na Release 1.0.4 foi adicionado o arquivo **Dockerfile** para subir a imagem da aplicação Docker via workflow **AWS** para **ECR** (Elastic Container Registry) e **ECS** (Elastic Container Service), a fim de hospedar a imagem na cloud pública para facilitar a execução da aplicação em outras máquinas.
 
 ### Release 1.0.3
 
