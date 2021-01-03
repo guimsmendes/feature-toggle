@@ -45,7 +45,7 @@ A API irá expôr 3 endpoints a fim de realizar o **cadastro**, **verificar** e 
 - **DELETE /toggle/{nome}** - deverá receber o nome da feature toggle, e caso exista no banco de dados em memória, a feature toggle deverá ser excluída do banco de dados.
 
 Além dos recursos informados, a rota também contém um endpoint do **Swagger** que expõe a documentação da API:
-> http://feature-toggle.us-east-2.elasticbeanstalk.com/swagger-ui/index.html
+> http://awseb-awseb-9rii3cdahste-1914091692.us-east-2.elb.amazonaws.com/swagger-ui/index.html
 
 Os métodos chamados via API, também foram disponibilizados para ser integrado na sua aplicação pelo package contido neste repositório. Após a instalação da dependência, poderão ser chamados os métodos registrarFeatureFlag(), verificarFeatureFlag() e apagarFeatureFlag() a partir do Controller da aplicação (FeatureToggleController)
  
